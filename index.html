@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      #list
+      {
+        background-color: green;
+        color: white;
+        height: 30px;
+        width: 100px;
+        margin-top: 150px;
+        border-radius: 6px;
+        cursor: pointer;
+
+      }
+      #listed{
+          margin: auto;
+          /* border: 1px solid red; */
+          width: 200px;
+
+          
+
+      }
+
+
+        #form{
+            width: 10%;
+            height: 200px;
+            margin: auto;
+            /* border: 1px solid red; */
+            margin-top: 30px;
+
+        }
+       #form>div{
+           margin-bottom: 20px;
+           /* border: 1px solid red; */
+       }
+       input{
+           height: 20px;
+           border-radius: 6px;
+       }
+       #submit{
+           background-color: blue;
+           border-radius: 5px;
+           width: 120px;
+           color: white;
+           height: 30px;
+           cursor: pointer;
+       }
+       
+    </style>
+</head>
+<body>
+    <div id="listed">
+        <button id="list">List</button>
+    </div>
+    <form id ="form">
+        <div>
+        <input id="name"   placeholder="Enter name"     type="text">
+        </div>
+        <div>
+            <input id="number" placeholder="Enter number"   type="number">
+        </div>
+        <div>
+            <input id="city"   placeholder="Enter the city" type="text">
+        </div>
+        <div>
+            <button id="submit"> Submit</button>
+        </div>
+        
+        
+
+       
+        
+   </form>
+</body>
+<script>
+
+         var array = JSON.parse(localStorage.getItem("studentdetails")) || [];
+         document.querySelector("#submit").addEventListener("click", function(){
+             let output = new student( document.querySelector('#name').value,
+                          document.querySelector('#number').value,
+                          document.querySelector('#city').value)
+            array.push(output);
+            console.log(array); 
+            localStorage.setItem("studentdetails",JSON.stringify(array));             
+         })  
+
+         function student(nam,num,cit)
+         {
+             this.name = nam;
+             this.number = num;
+             this.city = cit;
+         } 
+         
+         document.querySelector("#listed")
+                .addEventListener("click",function(){
+             window.location.href="display.html";
+         });
+</script>
+</html>

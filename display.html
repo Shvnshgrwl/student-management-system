@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    
+</style>
+<body>
+    <div id="details">
+
+    </div>
+</body>
+</html>
+<script>
+    var array = JSON.parse(localStorage.getItem("studentdetails")) || [];
+
+    array.map(function(e){
+
+        let div = document.createElement('div');
+        div.setAttribute('id','child');
+
+        let name = document.createElement("h4");
+        name.innerText = e.name;
+
+        let number = document.createElement("h4");
+        number.innerText = e.number;
+
+        let city = document.createElement("h4");
+        city.innerText = e.city
+
+        div.append(name,number,city);
+
+        document.getElementById("details").append(div);
+    });
+
+    
+
+    
+
+</script>
